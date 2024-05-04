@@ -59,11 +59,14 @@ scale =1/scaler.scale_
 predict=predict*scale
 y=y*scale
 
+rmse = np.sqrt(mean_squared_error(y_true, predictions))
+
 st.subheader('Original Price Vs Predicted Price ')
 fig4=plt.figure(figsize=(8,6))
 plt.plot(predict,'chocolate',label='Original Price')
 plt.plot(y,'orangered',label='Predicted Price')
 plt.xlabel('Time')
 plt.ylabel('Price')
+plt.title(f'RMSE: {rmse}')
 plt.show()
 st.pyplot(fig4)
